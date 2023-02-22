@@ -2,6 +2,8 @@ import { Request,Response } from "express";
 import UserModel from "../Model/User.Model";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+import WalletModel from "../Model/History.Model";
+import mongoose from "mongoose";
 
 
 // Register User
@@ -24,10 +26,22 @@ export const RegisterUser = async(req:Request,res:Response)=>{
             email,
             userName,
             password:hash,
-            phoneNumber:num +  phoneNumber,
+            phoneNumber:num - phoneNumber,
             verified:true,
             accountNumber: generateNumber
         })
+
+        const createWallet = await WalletModel.create({
+            // SO THAT THE USER ID AND THE ID IN THE WALLET WILL BE UNIQUE
+            _id:register?._id,
+            Balace:1000,
+            credit:0,
+            debit:0,
+
+        })
+        register?.wallet.push(new mongoose.Types.ObjectId(createWallet?._id))
+        register.save()
+
         return res.status(200).json({
             message:"Successfully Registered User",
             data:register,
