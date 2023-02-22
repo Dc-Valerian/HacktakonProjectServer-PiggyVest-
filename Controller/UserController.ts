@@ -54,3 +54,15 @@ export const RegisterUser = async(req:Request,res:Response)=>{
         })
     }
 }
+
+// TRANFER TO ANOTHER WALLET
+export const MakeTranfer = async(req:Request,res:Response)=>{
+    try {
+        
+        
+    } catch (error) {
+        return res.status(404).json({
+            message:"An Error Occurred {Couldn't Transfer}",error
+        })
+    }
+}
