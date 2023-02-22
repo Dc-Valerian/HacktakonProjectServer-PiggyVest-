@@ -9,3 +9,9 @@ export interface UserData{
     wallet:{}[];
     history:{}[];
 }
+
+export interface WalletData{
+    Balance:number;
+    credit:number;
+    debit:number;
+}
