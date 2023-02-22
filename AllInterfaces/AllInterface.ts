@@ -17,8 +17,8 @@ export interface WalletData{
 }
 
 export interface HistoryData{
-    message:string;
+    Balance:number;
     transactionReference:number;
-    transactionType:boolean;
+    transactionType:string;
 
 }

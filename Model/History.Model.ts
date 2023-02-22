@@ -4,14 +4,14 @@ import { HistoryData } from "../AllInterfaces/AllInterface";
 interface MainData extends HistoryData,mongoose.Document{}
 
 const HistorySchema = new mongoose.Schema<HistoryData>({
-    message:{
-        type:String,
+    Balance:{
+        type:Number,
     },
     transactionReference:{
         type:Number,
     },
     transactionType:{
-        type:Boolean,
+        type:String,
     }
     
  
