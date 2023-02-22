@@ -1,6 +1,7 @@
 import express,{Request,Response,Application} from "express"
 import mongoose from "mongoose"
 import cors from "cors"
+import router from "./Route/UserRoutes"
 
 const PORT:number = 9009
 
@@ -22,6 +23,7 @@ mongoose.connect(url).then(()=>{
     
 })
 
+app.use("/api/user",router)
 
 app.listen(PORT,()=>{
     console.log(`Listening to ${PORT}`)
