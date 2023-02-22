@@ -3,7 +3,7 @@ export interface UserData{
     email:string;
     userName:string;
     password:string;
-    phoneNumber:string;
+    phoneNumber:number;
     accountNumber:number;
     verified:boolean;
     wallet:{}[];
