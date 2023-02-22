@@ -19,4 +19,4 @@ const HistorySchema = new mongoose.Schema<HistoryData>({
 ,{timestamps:true}
 )
 
-export default mongoose.model<MainData>("History",HistorySchema)
+export default mongoose.model<MainData>("histories",HistorySchema)
