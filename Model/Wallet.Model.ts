@@ -8,7 +8,7 @@ const HistorySchema = new mongoose.Schema<HistoryData>({
         type:String,
     },
     transactionReference:{
-        type:String,
+        type:Number,
     },
     transactionType:{
         type:Boolean,
