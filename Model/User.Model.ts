@@ -40,7 +40,7 @@ const UserSchema = new mongoose.Schema<UserData>({
     history:[
         {
             type:mongoose.Schema.Types.ObjectId,
-            ref:"history",
+            ref:"histories",
         }
     ]
  

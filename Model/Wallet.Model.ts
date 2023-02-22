@@ -1,20 +1,17 @@
 import mongoose from "mongoose";
-import { WalletData } from "../AllInterfaces/AllInterface";
+import { HistoryData } from "../AllInterfaces/AllInterface";
 
-interface MainData extends WalletData,mongoose.Document{}
+interface MainData extends HistoryData,mongoose.Document{}
 
-const WalletSchema = new mongoose.Schema<WalletData>({
-    Balance:{
-        type:Number,
+const HistorySchema = new mongoose.Schema<HistoryData>({
+    message:{
+        type:String,
     },
-    credit:{
-        type:Number,
+    transactionReference:{
+        type:String,
     },
-    debit:{
-        type:Number,
-        required:true,
-        unique:true,
-        lowercase:true,
+    transactionType:{
+        type:Boolean,
     }
     
  
@@ -22,4 +19,4 @@ const WalletSchema = new mongoose.Schema<WalletData>({
 ,{timestamps:true}
 )
 
-export default mongoose.model<MainData>("wallets",WalletSchema)
+export default mongoose.model<MainData>("History",HistorySchema)
