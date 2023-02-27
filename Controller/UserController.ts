@@ -70,6 +70,7 @@ export const MakeTranfer = async(req:Request,res:Response)=>{
         const getUser = await UserModel.findById(req.params.UserId)
         // TO GET THE USER WALLET
         const getUserWallet = await WalletModel.findById(req.params.WalletID)
+       
 
         if (getUser && getReciever) {
 
