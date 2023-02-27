@@ -129,3 +129,21 @@ export const MakeTranfer = async(req:Request,res:Response)=>{
         })
     }
 }
+
+// FUND WALLET FROM BANK
+export const fundWalletFromBank = async(req:Request,res:Response)=>{
+    try {
+        
+        const getWallet = await WalletModel.findById(req.params.WalletID);
+
+        const {amount} = req.body;
+
+        await WalletModel.findByIdAndUpdate(getWallet?._id,{
+            Balance:getWallet?.Balance + amount
+        })
+    } catch (error) {
+        return res.status(404).json({
+            message:"An Error Occurred {Couldn't Transfer fund from wallet to bank}",error
+        })
+    }
+}
