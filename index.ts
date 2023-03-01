@@ -1,31 +1,26 @@
-import express,{Request,Response,Application} from "express"
-import mongoose from "mongoose"
-import cors from "cors"
-import router from "./Route/UserRoutes"
+import express from "express";
+import monogose from "mongoose";
+import cors from "cors";
+import UserRoute from "./Routes/UserRoutes";
+const port: number = 6400;
+const url = "mongodb://localhost/PaymentPiggyVestDB";
 
-const PORT:number = 9009
+const app = express();
+app.use(express.json());
+app.use(cors());
 
-const url = "mongodb://0.0.0.0:27017/PaymentPiggyVest"
+app.get("/", (req, res) => {
+	res.status(200).json({
+		message: "api is ready for consumption",
+	});
+});
 
-const app = express()
-app.use(express.json())
-app.use(cors())
+monogose.connect(url).then(() => {
+	console.log(`database is connected`);
+});
 
-app.get("/",(req:Request,res:Response)=>{
-    res.status(200).json({
-        message:"Api is ready for consumption"
-    })
-})
+app.use("/api/user", UserRoute);
 
-
-mongoose.connect(url).then(()=>{
-    console.log(`DataBase is Connected`)
-    
-})
-
-app.use("/api/user",router)
-
-app.listen(PORT,()=>{
-    console.log(`Listening to ${PORT}`)
-    
-})
+app.listen(port, () => {
+	console.log(`listening on ${port}`);
+});
