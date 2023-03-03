@@ -25,6 +25,7 @@ export const RegisterUser = async (req: Request, res: Response) => {
 			phoneNumber: num + phoneNumber,
 			verified: true,
 			accountNumber: generateNumber,
+			isAdmin: false,
 		});
 
 		const createWallet = await WalletModel.create({

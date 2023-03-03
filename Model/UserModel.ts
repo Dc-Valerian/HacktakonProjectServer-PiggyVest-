@@ -37,6 +37,10 @@ const UserSchema = new mongoose.Schema<UserData>(
 		verified: {
 			type: Boolean,
 		},
+
+		isAdmin: {
+			type: Boolean,
+		},
 		wallet: [
 			{
 				type: mongoose.Schema.Types.ObjectId,

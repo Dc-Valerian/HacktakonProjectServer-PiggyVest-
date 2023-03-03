@@ -6,6 +6,7 @@ export interface UserData {
 	phoneNumber: number;
 	accountNumber: number;
 	verified: boolean;
+	isAdmin: boolean;
 	wallet: {}[];
 	history: {}[];
 }
@@ -17,6 +18,7 @@ export interface WalletData {
 	quickSave: {}[];
 	saveLock: {}[];
 	Target: {}[];
+	invest: {}[];
 }
 
 export interface HistoryData {
@@ -47,4 +49,24 @@ export interface TargetData {
 	dateTime: string;
 	title: string;
 	targetValue: boolean;
+	Targetbalance: number;
+}
+
+export interface Inves {
+	title: string;
+	percentageInterest: number;
+	description: string;
+	investors: {}[];
+	startTime: string;
+	duration: string;
+	category: string;
+	status: boolean;
+	totalUnit: number;
+	amountPerUnit: number;
+}
+
+export interface InvestorData {
+	invertorId: string;
+	amount: number;
+	unit: number;
 }
