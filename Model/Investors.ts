@@ -5,7 +5,7 @@ interface MainData extends InvestorData, mongoose.Document {}
 
 const InvestorSchema = new mongoose.Schema<InvestorData>(
 	{
-		invertorId: {
+		investorId: {
 			type: String,
 		},
 

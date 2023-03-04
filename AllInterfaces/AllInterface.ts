@@ -19,6 +19,7 @@ export interface WalletData {
 	saveLock: {}[];
 	Target: {}[];
 	invest: {}[];
+	myInvestment: [];
 }
 
 export interface HistoryData {
@@ -30,7 +31,7 @@ export interface HistoryData {
 export interface Quick {
 	amount: number;
 	autoSave: boolean;
-	dateTime: number | string;
+	dateTime: string;
 	interest: number;
 }
 
@@ -66,7 +67,7 @@ export interface Inves {
 }
 
 export interface InvestorData {
-	invertorId: string;
+	investorId: string;
 	amount: number;
 	unit: number;
 }

@@ -44,6 +44,8 @@ const WalletSchema = new mongoose.Schema<WalletData>(
 				ref: "invests",
 			},
 		],
+
+		myInvestment: [],
 	},
 	{ timestamps: true },
 );

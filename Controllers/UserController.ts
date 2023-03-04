@@ -158,3 +158,21 @@ export const fundWalletFromBank = async (req: Request, res: Response) => {
 		});
 	}
 };
+
+export const UserDetail = async (req: Request, res: Response) => {
+	try {
+		const getUser = await UserModel.findById(req.params.id).populate({
+			path : "wallet"
+		});
+
+		res.status(200).json({
+			message: "Wallet updated successfully",
+			data: getUser,
+		});
+	} catch (err) {
+		return res.status(404).json({
+			message: "an error occurred",
+			err,
+		});
+	}
+};

@@ -14,7 +14,7 @@ const QuickSchema = new mongoose.Schema<Quick>(
 		},
 
 		dateTime: {
-			type: Number || String,
+			type: String,
 		},
 
 		interest: {

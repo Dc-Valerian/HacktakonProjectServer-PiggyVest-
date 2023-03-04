@@ -37,6 +37,7 @@ export const CreateQuickSave = async (req: Request, res: Response) => {
 	} catch (err) {
 		return res.status(404).json({
 			message: "an error occured",
+			err,
 		});
 	}
 };
