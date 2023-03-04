@@ -22,6 +22,7 @@ export const CreatInvestify = async (req: Request, res: Response) => {
 				amountPerUnit,
 				totalUnit: 200,
 				status: true,
+				owner:getUser?.name
 			});
 
 			return res.status(200).json(creating);
@@ -32,7 +33,8 @@ export const CreatInvestify = async (req: Request, res: Response) => {
 		}
 	} catch (err) {
 		return res.status(404).json({
-			message: "an error occurred while creating",
+			message: "an error occurred while creating ",
+			data:err
 		});
 	}
 };
@@ -84,6 +86,7 @@ export const InvestNow = async (req: Request, res: Response) => {
 	} catch (err) {
 		return res.status(404).json({
 			message: "an error occurred while creating",
+			err
 		});
 	}
 };

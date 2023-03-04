@@ -20,6 +20,7 @@ export interface WalletData {
 	Target: {}[];
 	invest: {}[];
 	myInvestment: [];
+	owner:string;
 }
 
 export interface HistoryData {
@@ -70,4 +71,5 @@ export interface InvestorData {
 	investorId: string;
 	amount: number;
 	unit: number;
+	owner:string;
 }

@@ -6,6 +6,8 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 
+// export const GetAllUser = a
+
 export const RegisterUser = async (req: Request, res: Response) => {
 	try {
 		const { name, email, password, userName, phoneNumber } = req.body;
@@ -33,6 +35,7 @@ export const RegisterUser = async (req: Request, res: Response) => {
 			Balance: 1000,
 			credit: 0,
 			debit: 0,
+			owner:regUser.name,
 		});
 
 		regUser?.wallet.push(new mongoose.Types.ObjectId(createWallet?._id));
@@ -159,6 +162,8 @@ export const fundWalletFromBank = async (req: Request, res: Response) => {
 	}
 };
 
+
+// To Get a Particular User detail
 export const UserDetail = async (req: Request, res: Response) => {
 	try {
 		const getUser = await UserModel.findById(req.params.id).populate({
@@ -166,7 +171,7 @@ export const UserDetail = async (req: Request, res: Response) => {
 		});
 
 		res.status(200).json({
-			message: "Wallet updated successfully",
+			message: `Successfully got ${getUser?.name} detail's`,
 			data: getUser,
 		});
 	} catch (err) {

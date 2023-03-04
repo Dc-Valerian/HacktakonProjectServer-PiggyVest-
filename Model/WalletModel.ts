@@ -8,6 +8,9 @@ const WalletSchema = new mongoose.Schema<WalletData>(
 		Balance: {
 			type: Number,
 		},
+		owner:{
+			type:String
+		},
 
 		credit: {
 			type: Number,

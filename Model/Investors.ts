@@ -12,6 +12,9 @@ const InvestorSchema = new mongoose.Schema<InvestorData>(
 		amount: {
 			type: Number,
 		},
+		owner:{
+			type:String
+		},
 
 		unit: {
 			type: Number,
